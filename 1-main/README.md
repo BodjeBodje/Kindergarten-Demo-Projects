@@ -71,7 +71,7 @@
 -   **Set required environment variables**
     
 `export MONGODB_URI="mongodb://myUser:myPassword@mongo:27017/kindergarten?authSource=admin"` 
-#export MONGODB_URI="mongodb://bouriah:Bouriah123@192.168.45.128:27017/school-app?authSource=admin"
+#export MONGODB_URI="mongodb://bouriah:Bouriah123@localhost:27017/school-app?authSource=admin"
 `export DATABASE_NAME="kindergarten"` 
  
 -   **Run the Python application**
@@ -183,7 +183,7 @@
     
 
 -   `export MONGODB_URI="mongodb://myUser:myPassword@172.22.0.2:27017/kindergarten?authSource=admin"`
-    #export MONGODB_URI="mongodb://bouriah:Bouriah123@192.168.45.128:27017/school-app?authSource=admin"
+    #export MONGODB_URI="mongodb://bouriah:Bouriah123@localhost:27017/school-app?authSource=admin"
 -   `export DATABASE_NAME="kindergarten"` 
     #export DATABASE_NAME="school-app"
     ---------------------------------
@@ -256,7 +256,7 @@
     
 
 -   `export MONGODB_URI="mongodb://myUser:myPassword@172.22.0.2:27017/kindergarten?authSource=admin"`
-    #export MONGODB_URI="mongodb://bouriah:Bouriah123@192.168.45.128:27017/school-app?authSource=admin"
+    #export MONGODB_URI="mongodb://bouriah:Bouriah123@localhost:27017/school-app?authSource=admin"
 -   `export DATABASE_NAME="kindergarten"` 
     #export DATABASE_NAME="school-app"
 

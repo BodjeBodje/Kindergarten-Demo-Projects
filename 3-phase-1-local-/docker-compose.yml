@@ -4,11 +4,11 @@ services:
     build: ./frontend
     ports:
       - "3000:3000"
-  employeeservice:
-    container_name: employeeservice-back
-    build: ./employeeservice
-    ports:
-      - "5003:5003"
+  # employeeservice:
+  #   container_name: employeeservice-back
+  #   build: ./employeeservice
+  #   ports:
+  #     - "5003:5003"
   # studentservice:
   #   container_name: studentservice-back
   #   build: ./studentservice
