@@ -4,16 +4,35 @@ services:
     build: ./frontend
     ports:
       - "3000:3000"
-  # employeeservice:
-  #   container_name: employeeservice-back
-  #   build: ./employeeservice
-  #   ports:
-  #     - "5003:5003"
-  # studentservice:
-  #   container_name: studentservice-back
-  #   build: ./studentservice
-  #   ports:
-  #     - "5002:5002"
+  employeeservice:
+    container_name: employeeservice-back
+    build: ./employeeservice
+    ports:
+      - "5003:5003"
+  studentservice:
+    container_name: studentservice-back
+    build: ./studentservice
+    ports:
+      - "5001:5001"
+  profileservice:
+    container_name: profileservice-back
+    build: ./profileservice
+    ports:
+      - "5004:5004"
+    env_file:
+      - ./profileservice/.env
+  teacherservice:
+    container_name: teacherservice-back
+    build: ./teacherservice
+    ports:
+      - "5002:5002"
+    env_file:
+      - ./teacherservice/.env
+  thumbnailworker:
+    container_name: thumbnailworker
+    build: ./thumbnailworker
+    env_file:
+      - ./thumbnailworker/.env
 
 
   mongo:
