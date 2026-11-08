@@ -16,9 +16,10 @@ services:
       - "5001:5001"
   profileservice:
     container_name: profileservice-back
+    network_mode: "service:object-storage" #this case use network_mode
     build: ./profileservice
-    ports:
-      - "5004:5004"
+    # ports:
+    #   - "5004:5004"
     env_file:
       - ./profileservice/.env
   teacherservice:
@@ -86,6 +87,7 @@ services:
     ports:
       - "9000:9000"
       - "9001:9001"
+      - "5004:5004"
     environment:
       RUSTFS_ACCESS_KEY: ${OBJECT_STORAGE_ACCESS_KEY}
       RUSTFS_SECRET_KEY: ${OBJECT_STORAGE_SECRET_KEY}
