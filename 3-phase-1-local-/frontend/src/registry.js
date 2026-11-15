@@ -2,7 +2,7 @@ export const registries = {
   students: {
     label: "Students",
     singular: "Student",
-    base: process.env.REACT_APP_STUDENT_API_URL || "http://localhost:5001",
+    base: process.env.REACT_APP_STUDENT_API_URL ?? "",
     idField: "roll",
     idLabel: "Roll number",
     detailField: "address",

@@ -1,34 +1,42 @@
 services:
+  nginx:
+    container_name: nginx
+    build: ./nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - frontend
+      - employeeservice
+      - studentservice
+      - teacherservice
   frontend:
     container_name: frontend
     build: ./frontend
-    ports:
-      - "3000:3000"
+
   employeeservice:
-    container_name: employeeservice-back
+    container_name: employeeservice
     build: ./employeeservice
-    ports:
-      - "5003:5003"
+
   studentservice:
-    container_name: studentservice-back
+    container_name: studentservice
     build: ./studentservice
-    ports:
-      - "5001:5001"
+    env_file:
+      - ./studentservice/.env
+
   profileservice:
-    container_name: profileservice-back
-    network_mode: "service:object-storage" #this case use network_mode
+    container_name: profileservice
+    # network_mode: "service:object-storage" #this case use network_mode
     build: ./profileservice
-    # ports:
-    #   - "5004:5004"
     env_file:
       - ./profileservice/.env
+    restart: always
+
   teacherservice:
-    container_name: teacherservice-back
+    container_name: teacherservice
     build: ./teacherservice
-    ports:
-      - "5002:5002"
     env_file:
       - ./teacherservice/.env
+
   thumbnailworker:
     container_name: thumbnailworker
     build: ./thumbnailworker
@@ -87,7 +95,7 @@ services:
     ports:
       - "9000:9000"
       - "9001:9001"
-      - "5004:5004"
+      # - "5004:5004"
     environment:
       RUSTFS_ACCESS_KEY: ${OBJECT_STORAGE_ACCESS_KEY}
       RUSTFS_SECRET_KEY: ${OBJECT_STORAGE_SECRET_KEY}
